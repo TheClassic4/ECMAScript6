@@ -34,3 +34,7 @@ var obj = {
 ![1.png](https://upload-images.jianshu.io/upload_images/15578663-12534be407d5d8f5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)  
 因为函数是一个单独的值，所以函数运行时有不同的环境（上下文）执行，我们可以在函数内部引用当前环境的其他变量，this可以使函数获取当前运行环境  
 var f1 = obj.f1后f1 ()直接指向函数本身，obj.f1()是通过obj内存的地址找到的f1
+
+### import {}
+在JavaScript ES6中，export与export default均可用于导出常量、函数、文件、模块等，你可以在其它文件或模块中通过import+(常量 | 函数 | 文件 | 模块)名的方式，将其导入，以便能够对其进行使用，但在一个文件或模块中，export、import可以有多个，export default仅有一个  
+通过export方式导出，在导入时要加{ },并且export能导出变量表达式
