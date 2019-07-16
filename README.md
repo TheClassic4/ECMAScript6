@@ -13,7 +13,17 @@ y // 3
 
 解构赋值允许指定默认值
 
-`let [foo = true] = []`
+`let [foo = true] = []`  
+
+对象的解构赋值  
+```
+// 将Math对象的方法sin, cos, tan分别赋值到对应的变量上， this.sin = Math.sin ...
+let { sin, cos, tan } = Math
+
+// let visitorQuerySQ = this.props.visitorQuerySQ
+let { visitorQuerySQ } = this.props
+```
+
 
 ### this的详解
 this指的是函数运行时所在的环境，object和class的区别，比如class是人，而我是一个object
