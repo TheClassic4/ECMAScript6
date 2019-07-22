@@ -229,8 +229,10 @@ for (var i of one){
 ```
 上面代码首先在构造函数的原型链上部署`Symbol.iterator`方法，调用该方法会返回遍历器对象`iterator`，调用该对象`next`
 方法，在返回一个值的同时，自动将内部指针移到下一个实例
-### Symbol
-作为属性名的symbol,由于每一个Symbol值都是不想等的，这意味着Symbol值可以作为标识符，用于***对象***的属性名，就能保证不会出现同名的属性。这对于一个由多个模块构成的情况非常有利，能防止某一个键被不小心改写或覆盖。
+### Symbol 
+是一种独一无二的类型undefine null string boolean number object symbol  
+对象的属性名可以有两种类型，一种是原来有的string，另一种就是symbol类型
+作为属性名的symbol,由于每一个Symbol值都是不相等的，这意味着Symbol值可以作为标识符，用于***对象***的属性名，就能保证不会出现同名的属性。这对于一个由多个模块构成的情况非常有利，能防止某一个键被不小心改写或覆盖。
 ```
 let mySymbol = Symbol();
 
@@ -249,3 +251,14 @@ Object.defineProperty(a, mySymbol, { value: 'Hello!' });
 
 a[mySymbol] // "Hello!"
 ```
+在对象内部，使用Symbol值定义属性时，Symbol值必须放在方括号之中。
+```
+let s = Symbol();
+
+let obj = {
+  [s]: function (arg) { ... }
+};
+
+obj[s](123);
+```
+
