@@ -1,28 +1,4 @@
 # ECMAScript6
-### 2.let和const
-`let`只在自己所在的代码块(块级作用域)内生效，`const`声明一个只读常量，一旦声明常量的值就不能改变  
-
-### 3.变量的解构
-`let [a, b, c] = [1, 2, 3]`  
-  
-```
-let [x, ,y] = [1, 2, 3]
-x // 1
-y // 3
-```
-
-解构赋值允许指定默认值
-
-`let [foo = true] = []`  
-
-对象的解构赋值  
-```
-// 将Math对象的方法sin, cos, tan分别赋值到对应的变量上， this.sin = Math.sin ...
-let { sin, cos, tan } = Math
-
-// let visitorQuerySQ = this.props.visitorQuerySQ
-let { visitorQuerySQ } = this.props
-```
 
 
 ### this的详解
