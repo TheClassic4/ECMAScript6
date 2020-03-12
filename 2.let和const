@@ -1,3 +1,5 @@
+### 基本用法
+for的循环技术就很适合用let命令
 ```
 for (let i=0; i < 3; i++) {
   let i = 'abc';
@@ -6,7 +8,9 @@ for (let i=0; i < 3; i++) {
 // abc
 // abc
 // abc
-// for循环变量中，设置循环变量的那部分是一个父作用域，循环体内部是一个单独的自作用域
+// for循环变量中，设置循环变量的那部分是一个父作用域，循环体内部是一个单独的自作用域 
+
+// for循环中只是声明了函数，没有调用，let中所定义的i每一次都是一个新的变量
 var a = [];
 for (var i = 0;i < 10; i++) {
   a[i] = function () {
@@ -14,7 +18,7 @@ for (var i = 0;i < 10; i++) {
   }
 }
 a[6](); // 10
-
+// 子作用域中的i是全局变量i 故直接输出10
 var a = [];
 for (let i = 0;i < 10; i++) {
   a[i] = function () {
@@ -22,7 +26,33 @@ for (let i = 0;i < 10; i++) {
   }
 }
 a[6](); // 6
+// 子作用域中的i只有本轮循环有效，每一次循环i都是新的变量 
+
 ```
+### 不存在变量提升 
+```
+console.log(foo); // 输出undefined
+var foo = 2；
+
+console.log(bar); // 报错ReferenceError
+let bar = 2；
+``` 
+
+### 暂时性死区
+变量在用let const声明之前都处于“死区”
+```
+let x=x //报错
+
+function bar(x = y, y = 2) {
+  return[x, y];
+}
+bar(); //报错
+//  TDZ(temporal dead zone)
+``` 
+### ES6的块级作用域
+外层无法读取内存的内部变量； 
+内作用域可以定义外作用域的同名变量； 
+
 ### 2.let和const
 `let`只在自己所在的代码块(块级作用域)内生效，`const`声明一个只读常量，一旦声明常量的值就不能改变  
 
