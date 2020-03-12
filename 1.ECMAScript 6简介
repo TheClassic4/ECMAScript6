@@ -1,0 +1,12 @@
+### 5.Babel转码器
+Babel是一个广泛使用的ES6转码器，将ES6代码转为ES5
+```
+// 转码前
+input.map(item = > item + 1);
+
+// 转码后
+input.map(function(item) {
+  return item + 1;
+})
+```
+(map()是一个数组方法。1.不检测空数组;2.不会改变原始数组;3.对数组中的每一个元素进行处理，返回新的元素;)
